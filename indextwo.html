@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <script>
+       
+ const breakfast = {
+    toast: {
+        name: "toast with Ham",
+        cost: 3.00
+    },
+
+    coffee: {
+        name: "special coffee",
+        cost: 1.50
+    },
+
+    eggs: {
+        name: "eggs with ham",
+        cost: 4.50
+    }
+}
+
+const lunch = {
+    soup: {
+        name: "special soup",
+        cost: 9.99
+    },
+
+    salad: {
+        name: "salad",
+        cost: 5.90
+    },
+
+    pasta: {
+        name: "carbonara",
+        cost: 8.99
+    }
+}
+
+const welcome = () => {
+    alert(`Welcome to our restaurant! This is our menu!!`)
+    alert(`
+    Menu
+    For breakfast:     
+    ${breakfast.toast.name}:${breakfast.toast.cost}$
+    ${breakfast.coffee.name}:${breakfast.coffee.cost}$
+    ${breakfast.eggs.name}:${breakfast.eggs.cost}$
+    
+    For lunch:          
+    ${lunch.soup.name}: ${lunch.soup.cost}$
+    ${lunch.salad.name}: ${lunch.salad.cost}$
+    ${lunch.pasta.name}: ${lunch.pasta.cost}$
+    `)
+}
+
+
+
+
+const order = () => {
+    orderBreakfas();
+    orderLunch();
+    confirmOrder();
+   
+}
+
+
+const orderBreakfas = () => {
+    breakfas = prompt(`What would you like for your breakfast
+    (you have toast, coffee or eggs for breakfast.)
+        ${breakfast.toast.name}: ${breakfast.toast.cost}$
+        ${breakfast.coffee.name}: ${breakfast.coffee.cost}$
+        ${breakfast.eggs.name}: ${breakfast.eggs.cost}$
+    `)
+    if(breakfas == "toast with ham") {
+        let confirmBreakfas = prompt(`The ${breakfast.toast.name} will be ${breakfast.toast.cost}$. Is that what you want?`)
+        if(confirmBreakfas == "yes") {alert(`The Toast with ham is delicius!! very good`);}
+        else{orderBreakfas();}
+    }
+    else if(breakfas == "special coffee") {
+        let confirmBreakfas = prompt(`The ${breakfast.coffee.name} will be ${breakfast.coffee.cost}$. Is that what you want?`)
+        if (confirmBreakfas == "yes") {alert(`The coffee is very good! It's my favorite`);}
+        else{orderBreakfas();} 
+    }
+    else if(breakfas == "eggs with ham") {
+        let confirmBreakfas = prompt(`The ${breakfast.eggs.name} will be ${breakfast.eggs.cost}$. Is that what you want?`)
+        if(confirmBreakfas == "yes") {
+            alert(`The eggs are very good! great!`);}
+        else{orderBreakfas();}
+    }
+    else {
+        alert(`Sorry repeat again, please!!!.`)
+        orderBreakfas();
+    }
+}
+
+const orderLunch = () => {
+    orderLunch1();
+    orderLunch2();
+}
+
+const orderLunch1 = () => {
+    lunch1 = prompt(`What would you like for your First Lunch?
+    (you can eat Soup, Salad, and Pasta Carbonara)
+  
+        ${lunch.soup.name}: ${lunch.soup.cost}$
+        ${lunch.salad.name}: ${lunch.salad.cost}$
+        ${lunch.pasta.name}: ${lunch.pasta.cost}$
+        `)
+    if(lunch1 == "special soup") {
+        let confirmLunch1 = prompt(`The ${lunch.soup.name} will be ${lunch.soup.cost} $. Is that what you want?`)
+        if(confirmLunch1 == "yes") {alert(`Great choice! Fantastic Soup`);}
+        else{orderLunch1();}
+    }
+    else if(lunch1 == "salad") {
+        let confirmLunch1 = prompt(`The ${lunch.salad.name} will be ${lunch.salad.cost} $. Is that what you want?`)
+        if(confirmLunch1 == "yes") {alert(`Very good. Very healthy`);orderLunch1();}
+        else{orderLunch1();}
+    }
+    else if(lunch1 == "carbonara") {
+        let confirmLunch1 = prompt(`The ${lunch.pasta.name} will be ${lunch.pasta.cost} $. Is that what you want?`)
+        if(confirmLunch1 == "yes") {alert(`Nice choice!`);}
+        else{orderLunch1();}
+    }
+    else {
+        alert(`Sorry, repeat again please`)
+        orderLunch1();
+        orderLunch2();
+    }
+}
+
+const orderLunch2 = () => {
+    lunch2 = prompt(`What would you like for your Second Lunch?
+    (you can just type Soup, Salad, or Pasta)
+        ${lunch.soup.name}: ${lunch.soup.cost}$
+        ${lunch.salad.name}: ${lunch.salad.cost}$
+        ${lunch.pasta.name}: ${lunch.pasta.cost}$
+    `)
+    if(lunch2 == "soup") {
+        let confirmLunch2 = prompt(`The ${lunch.soup.name} will be ${lunch.soup.cost}$. Is that what you want?`)
+        if(confirmLunch2 == "yes") {alert(`Great Choice`);}
+        else{orderLunch2();}
+    }
+    else if(lunch2 == "salad") {
+        let confirmLunch2 = prompt(`The ${lunch.salad.name} will be ${lunch.salad.cost}$. Is that what you want?`)
+        if(confirmLunch2 == "yes") {alert(`Great Choice.`);}
+        else{orderLunch2();}
+    }
+    else if(lunch2 == "carbonara") {
+        let confirmLunch2 = prompt(`The ${lunch.pasta.name} will be ${lunch.pasta.cost}$. Is that what you want?`)
+        if(confirmLunch2 =="yes") {alert(`Great choice! `);}
+        else{orderLunch2();}
+    }
+    else {
+        alert(`Sorry, repeat again.`)
+        orderLunch2();
+    }
+}
+
+const confirmOrder = () => {
+    let orderConfirm = prompt(`Ok, let me make sure I got your order right. You want ${breakfas} for your Breakfast and ${lunch1} and ${lunch2} as your Lunch?`).toString();
+    if(orderConfirm =="yes") {
+      alert(`Great! Your order is ready!!!!`);
+    }
+    else if(orderConfirm =="no"){changeOrder();}
+    else {
+      alert(`Sorry, repeat again.`)
+      confirmOrder();
+      
+    }
+}
+
+
+
+checkout = () => {
+
+    if(breakfas == "toast with ham") {
+      breakfasPrice = breakfast.toast.cost;
+    }
+    else if(breakfas == "special coffee") {
+      breakfasPrice = breakfast.coffee.cost;
+    }
+    else if(breakfas == "eggs with ham") {
+      breakfasPrice = breakfast.eggs.cost;
+    }
+  
+    if(lunch1 == "special soup") {
+      lunch1Price = lunch.soup.cost;
+    }
+    else if(lunch1 == "salad") {
+      lunch1Price = lunch.salad.cost;
+    }
+    else if(lunch1 == "carbonara") {
+      lunch1Price = lunch.pasta.cost;
+    }
+  
+    if(lunch2 == "soup") {
+      lunch2Price = lunch.soup.cost;
+    }
+    else if(lunch2 == "salad") {
+      lunch2Price = lunch.salad.cost;
+    }
+    else if(lunch2 == "pasta") {
+      lunch2Price = lunch.pasta.cost;
+    }
+    total = parseFloat(breakfasPrice + lunch1Price + lunch2Price).toFixed(2);
+    alert(`Your Total is ${total}$. Thanks for coming in and have a nice day!`)
+  }
+
+
+  
+ 
+
+  dinner = () =>{
+    welcome();
+    order();
+    checkout();
+  }
+  
+  dinner();
+  
+  console.log(`This customer ordered the ${breakfas}, the ${lunch1}, and the ${lunch2}`);
+
+
+
+
+    </script>
+</body>
+</html>
+ 
